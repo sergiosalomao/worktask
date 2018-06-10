@@ -1,0 +1,19 @@
+
+@media screen and (max-width: 576px) {
+    .campo-obs {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .campo-obs {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .campo-obs {
+        display: none;
+    }
+}
