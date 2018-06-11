@@ -8,6 +8,7 @@ function mostrarLista() {
         $("#form").hide("slideToggle");
         $("#btn-salvar").hide("slideToggle");
         document.getElementById('titulo').innerText = "Relatorio dos Tipos de Usuarios"
+
     }
 
     else {
@@ -28,8 +29,5 @@ function mostrarLista() {
 /*Funcao do botao salvar */
 function salvar() {
     $("#formulario-tipo-usuario").submit();
-    location.reload('../frames/list.php');
-
-
 }
 

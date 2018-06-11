@@ -1,9 +1,9 @@
 <?php
-require_once "../../../controller/TiposUsuarioController.php";
-require_once "../../../model/TiposUsuario.php";
+require_once "../../../../controller/TiposUsuarioController.php";
+require_once "../../../../model/TiposUsuario.php";
 
 if (isset($_POST)):
-   $id = (isset($_POST['id'])) ? $_POST['id'] : '';
+    $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 
     // Valida se foram preenchidos todos os campos
     if (empty($id)):
@@ -16,7 +16,6 @@ if (isset($_POST)):
 
     else:
 
-        #Apaga
 
         #Instancia o Controller
         $tipoUsuarioController = new TiposUsuarioController();
@@ -30,18 +29,7 @@ if (isset($_POST)):
         #Pega total de registros atuais
         $tot_reg = $tipoUsuarioController->ContaRegistros();
 
-
-        $tipoUsuarioController->deletar($id);
-        $tipoUsuarioController->ListarTodos();
-
-
-        $array = array(
-            'status' => 'excluido',
-            'classe' => 'bg-danger',
-            'mensagem' => 'Registro excluido com sucesso');
-
-        echo json_encode($array);
-
+        echo json_encode($tipoUsuarioController->procurarPorId($id));
 
     endif;
 endif;
