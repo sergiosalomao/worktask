@@ -1,6 +1,7 @@
 <?php
 require_once "../../../../controller/TiposUsuarioController.php";
 require_once "../../../../model/TiposUsuario.php";
+require_once "../../../../../../appConfig.php";
 
 if (isset($_POST)):
     $id = (isset($_POST['id'])) ? $_POST['id'] : '';
@@ -16,13 +17,11 @@ if (isset($_POST)):
 
     else:
 
-
         #Instancia o Controller
         $tipoUsuarioController = new TiposUsuarioController();
 
         #Instancia o Model
         $tipoUsuarioModel = new TiposUsuario();
-
 
         $array = array();
 

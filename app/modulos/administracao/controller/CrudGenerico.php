@@ -2,7 +2,6 @@
 require_once 'Conexao.php';
 interface CrudGenerico
 {
-
     public function ListarTodos();
 
     public function procurarPorId($id);
@@ -14,6 +13,4 @@ interface CrudGenerico
     public function deletar($id);
 
     public function contaRegistros();
-
-
 }

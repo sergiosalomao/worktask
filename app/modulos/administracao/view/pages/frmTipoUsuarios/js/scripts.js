@@ -8,7 +8,6 @@ function mostrarLista() {
         $("#form").hide("slideToggle");
         $("#btn-salvar").hide("slideToggle");
         document.getElementById('titulo').innerText = "Relatorio dos Tipos de Usuarios"
-
     }
 
     else {

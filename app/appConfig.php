@@ -1,7 +1,7 @@
 <?php
 
-/* Configurações do sistema*/
-/* =============================*/
+#Configurações do sistema
+#=============================
 
 /* Ambientes de desenvolvimento*/
 /* =============================*/
@@ -10,22 +10,21 @@
 /* PRODUCAO = Configura para uso remoto.
 */
 
-const AMBIENTE = 'TESTE';
-
+#Informa ambiente atual
+CONST AMBIENTE = 'PRODUCAO';
 
 #informa o nome da pasta do projeto.
-const APP_FOLDER = 'worktask';
+CONST APP_FOLDER = 'worktask';
 
 #informa a versao atual
-const APP_VERSAO = '1.0';
+CONST APP_VERSAO = '1.0';
 
 #informa a nome do caption das telas do sistema
-const APP_TITULO_CAPTION = 'WorkTask' . ' ' . APP_VERSAO;
+CONST APP_TITULO_CAPTION = 'WorkTask' . ' ' . APP_VERSAO;
 
-/* =====================================================================================*/
 
-/* Configuracao de Links de Imagens*/
-/* =============================*/
+#Inicio das funcoes e condicoes
+#======================================================================================
 
 If (AMBIENTE == "TESTE") {
     $pasta = "";
@@ -33,9 +32,11 @@ If (AMBIENTE == "TESTE") {
     $pasta =  "/".APP_FOLDER;
 }
 
-#botao editar
+#imagem do botao editar
 define("BTN_EDIT", $pasta . "/library/glyphicons/png/glyphicons-151-edit.png");
 
-#botao apagar
+#imagem do botao deletar
 define("BTN_DELETE", $pasta . "/library/glyphicons/png/glyphicons-192-minus-sign.png");
 
+#Componente msginfo (estilos)
+define("COMP_INFOMSG", $pasta . "/componentes/css/msginfo.css");
