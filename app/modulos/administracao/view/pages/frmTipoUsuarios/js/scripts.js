@@ -21,12 +21,11 @@ function mostrarLista() {
 
         }
     }
-
-
 }
 
 /*Funcao do botao salvar */
 function salvar() {
     $("#formulario-tipo-usuario").submit();
 }
+
 

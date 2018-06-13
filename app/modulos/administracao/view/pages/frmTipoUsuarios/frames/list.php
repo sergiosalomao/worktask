@@ -13,7 +13,7 @@
             </thead>
             <tbody id="lista">
 
-                // aqui entra o json
+
 
             </tbody>
         </table>

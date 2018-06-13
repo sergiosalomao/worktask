@@ -1,0 +1,22 @@
+[
+  {
+    "nome": "Dashboard",
+    "link": "frmDashboard.php"
+  },
+  {
+    "nome": "Usuarios",
+    "link": "frmUsuarios.php"
+  },
+  {
+    "nome": "Tipo Usuarios",
+    "link": "frmTipoUsuarios.php"
+  },
+  {
+    "nome": "Projetos",
+    "link": "frmProjetos.php"
+  },
+  {
+    "nome": "Sair",
+    "link": "#sair"
+  }
+]

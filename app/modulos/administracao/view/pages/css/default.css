@@ -1,0 +1,11 @@
+html, body {
+    top: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#div-top {
+    margin: 0px;
+    padding: 10px;
+    background-color: #1d2124;
+}

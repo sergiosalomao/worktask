@@ -71,45 +71,43 @@ Opcao Excluir:
 Parametros de retorno do Json
 retorno, classe, mensagem, lista(ListaTodos), registros(numero de registros)
 */
-
 function deletaPorId(id) {
-
-    var selecionado = id;
-
     /*pega o evendo onclick do modal que encontrase no janelas modal_conforma_exclusao*/
     $("#btn-sim").click(function () {
+
         $("#msginfo").show();
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: "frmTipoUsuarios/ajax/deletar.php",
-            async: false,
-            data: {id: selecionado},
-            success: function (response) {
 
-                <!--se o retorno for excluido-->
-                if (response.retorno == 'excluido') {
-                    setTimeout(function () {
-                        $("#msginfo").hide();
-                    }, 5000);
-                    $('#msginfo').removeClass();
-                    $('#msginfo').addClass(response.classe)
+        if (id != null)
+        {
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: "frmTipoUsuarios/ajax/deletar.php",
+                async: true,
+                data: {id: id},
+                success: function (response) {
+                    id = null;
+                    <!--se o retorno for excluido-->
+                    if (response.retorno == 'excluido') {
+                        setTimeout(function () {
+                            $("#msginfo").hide();
+                        }, 5000);
+                        $('#msginfo').addClass(response.classe)
+                            .html(response.mensagem)
 
-                        .html(response.mensagem)
-
-                    $('#lista').html(response.lista)
+                        $('#lista').html(response.lista)
+                    }
+                    else if (response.retorno == 'error') {
+                        <!--se o retorno for error-->
+                        setTimeout(function () {
+                            $("#msginfo").hide();
+                        }, 5000);
+                        $('#msginfo').addClass(response.classe)
+                            .html(response.mensagem)
+                    }
                 }
-                else if (response.retorno == 'error') {
-                    <!--se o retorno for error-->
-                    setTimeout(function () {
-                        $("#msginfo").hide();
-                    }, 5000);
-                    $('#msginfo').removeClass();
-                    $('#msginfo').addClass(response.classe)
-                        .html(response.mensagem)
-                }
-            }
-        })
+            })
+        }
     })
 }
 
@@ -128,8 +126,8 @@ function editar(id) {
         data: {id: selecionado},
         success: function (response) {
             /*alimenta os campos*/
-            $("#descricao").val(response.descricao);
-            $("#obs").val(response.obs);
+            $("#descricao").val(response.descricao.trim());
+            $("#obs").val(response.obs.trim());
 
             /*Mostra o formulario*/
             document.getElementById('btn-lista').innerText = "Mostrar Relatorio";
@@ -141,6 +139,7 @@ function editar(id) {
     })
     return false
 }
+
 
 /*
 Opcao Listar Todos:
@@ -154,7 +153,6 @@ $('#btn-lista').click(function () {
         type: 'POST',
         dataType: 'json',
         url: "frmTipoUsuarios/ajax/listarTodos.php",
-        async: false,
         success:
             function (response) {
                 $('#lista').html(response.lista)

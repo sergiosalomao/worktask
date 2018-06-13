@@ -11,7 +11,7 @@
 */
 
 #Informa ambiente atual
-CONST AMBIENTE = 'PRODUCAO';
+CONST AMBIENTE = 'TESTE';
 
 #informa o nome da pasta do projeto.
 CONST APP_FOLDER = 'worktask';

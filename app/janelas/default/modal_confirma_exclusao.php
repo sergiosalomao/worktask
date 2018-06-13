@@ -13,7 +13,7 @@
                 <p id="lbl-pergunta" class="font-weight-light">Deseja realmente excluir este registro?</p>
             </div>
             <div class="modal-footer">
-                <button id="btn-sim" type="button" class="btn btn-sucess" data-dismiss="modal">Sim</button>
+                <button id="btn-sim" type="button" class="btn btn-sucess" data-dismiss="modal" >Sim</button>
                 <button id="btn-nao" type="button" class="btn btn-default" data-dismiss="modal">Não</button>
             </div>
         </div>
