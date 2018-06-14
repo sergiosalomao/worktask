@@ -3,7 +3,8 @@ require_once "../../../../appConfig.php";
 require_once '../../controller/TiposUsuarioController.php';
 require_once '../../model/TiposUsuario.php';
 require_once '../../../../componentes/Comp_MsgInfo.php';
-require_once '../../../../componentes/Comp_LinkScreen.php' ?>
+require_once '../../../../componentes/Comp_LinkScreen.php';
+require_once '../../../../componentes/Comp_StatusBar.php '?>
 
 <!DOCTYPE html>
 <html>

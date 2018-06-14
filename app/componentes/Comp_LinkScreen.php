@@ -1,30 +1,32 @@
 <?php
+
 Class Comp_LinkScreen
 {
-
     #Propriedades do componente
     private $id = 'linkscreen';
-    private $backgroundColor = '#e2e2e2';
-    private $color = '#036ddd';
-    private $borderRadius = '3';
-    private $padding = 10;
-    private $margin = 4;
+    private $style = null;
 
+    public function __construct()
+    {
+        $this->style = (array(
+            /*Estilos Padrão*/
+            "margin:5px",
+            "padding:7px",
+            "background-color:#ddd7",
+            "color:blue",
+            "width:98%",
+            "font-weight: light"));
+
+        $this->styles($this->style);
+    }
+
+    public function styles($style)
+    {
+        $this->style = str_replace(",", ";", implode(",", $style));
+    }
 
     public function render($rotasArray)
     {
-        $obj = null;
-        $obj .= "<style>";
-        $obj .= "#$this->id" . "{";
-        $obj .= "padding:$this->padding" . "px;";
-        $obj .= "margin:$this->margin" . "px;";
-        $obj .= "background-color:$this->backgroundColor" . ";";
-        $obj .= "border-radius:$this->borderRadius" . "px;";
-        $obj .= "color:$this->color" . ";";
-        $obj .= "};";
-        $obj .= "</style>";
-        echo $obj;
-
         $nRotas = count($rotasArray);
         $contador = 1;
         $rotas = null;
@@ -36,6 +38,6 @@ Class Comp_LinkScreen
             }
             $contador++;
         }
-        echo $linkscreen = "<p id='$this->id'>$rotas</p>";
+        echo $linkscreen = "<p style='$this->style' id='$this->id'>$rotas</p>";
     }
 }

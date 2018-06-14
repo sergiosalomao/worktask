@@ -35,8 +35,7 @@ if (isset($_POST)):
         foreach($tipoUsuarioController->ListarTodos() as $dados) {
             $lista.= "<tr>";
             $lista.= "<td>$dados->id</td>";
-            $lista.= "<td>$dados->descricao</td>";
-            $lista.= "<td>$dados->obs</td>";
+            $lista .= "<td><b>$dados->descricao</b><br> $dados->obs</td>";
             $lista.= "<td width='50px' style='text-align: center'>";
             $lista.= "<button type='button' id='btn-edit[$dados->id]' class='btn btn-info' onclick='editar($dados->id)'><img src='" . BTN_EDIT . "'></img></button>";
             $lista.= "</td>";

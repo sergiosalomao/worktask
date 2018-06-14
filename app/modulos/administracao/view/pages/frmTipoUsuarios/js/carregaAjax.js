@@ -148,15 +148,17 @@ Parametros de retorno do Json
 retorno, classe, mensagem, lista(ListaTodos), registros(numero de registros)
 */
 
-$('#btn-lista').click(function () {
-    $.ajax({
+    function ListarTodos() {
+
+        $.ajax({
         type: 'POST',
         dataType: 'json',
         url: "frmTipoUsuarios/ajax/listarTodos.php",
         success:
             function (response) {
-                $('#lista').html(response.lista)
+            $('#lista').html(response.lista)
+            $('#totalReg').html("Total de Registros : " + response.registros)
             }
     })
-    return false;
-})
+    return false
+}

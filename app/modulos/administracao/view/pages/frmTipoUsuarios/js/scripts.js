@@ -21,6 +21,7 @@ function mostrarLista() {
 
         }
     }
+    ListarTodos();
 }
 
 /*Funcao do botao salvar */
