@@ -13,8 +13,8 @@ Class Comp_StatusBar
             /*Estilos Padrão*/
             "margin:3px",
             "padding:5px",
-            "background-color:#e1e1e1",
-            "color:black",
+            "background-color:#1d2124",
+            "color:white",
             "width:100%",
             "height:35px",
             "text-aling:left",

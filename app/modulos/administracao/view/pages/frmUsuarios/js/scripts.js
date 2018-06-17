@@ -5,9 +5,9 @@ function mostrarLista() {
     if (document.getElementById('btn-lista').innerText == "Listar") {
         document.getElementById('btn-lista').innerText = "Novo"
         $("#relatorio").show("slideToggle");
-        $("#form").hide("slideToggle");
+        $("#formulario-usuario").hide("slideToggle");
         $("#btn-salvar").hide("slideToggle");
-        document.getElementById('titulo').innerText = "Relatorio dos Tipos de Usuarios"
+        document.getElementById('titulo').innerText = "Relatorio dos Usuarios"
     }
 
     else {
@@ -15,10 +15,10 @@ function mostrarLista() {
         if (document.getElementById('btn-lista').innerText == "Novo") {
             document.getElementById('btn-lista').innerText = "Listar";
             $("#relatorio").hide("slideToggle");
-            $("#form").show("slideToggle");
+            $("#formulario-usuario").show("slideToggle");
             $("#btn-salvar").show("slideToggle");
-            document.getElementById('titulo').innerText = "Tipos de Usuarios"
-
+            document.getElementById('titulo').innerText = "Usuarios"
+            $("#formulario-usuario input,select").val(null);
         }
     }
     ListarTodos();
@@ -26,7 +26,7 @@ function mostrarLista() {
 
 /*Funcao do botao salvar */
 function salvar() {
-    $("#formulario-tipo-usuario").submit();
+    $("#formulario-usuario").submit();
     ListarTodos();
 }
 

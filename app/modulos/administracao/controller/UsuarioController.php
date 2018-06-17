@@ -53,7 +53,7 @@ Class UsuarioController implements CrudGenerico
                 ':tipo' => $tipo,
                 ':status' => $status,
                 ':criadoEm' => $criadoEm,
-                ':modificadoEm' => $modificadoEm,));
+                ':modificadoEm' => $modificadoEm));
         }
         catch (exception $error)
         {
@@ -87,7 +87,7 @@ Class UsuarioController implements CrudGenerico
             $stmt->execute(array(
                 ':nome' => $nome,
                 ':email' => $email,
-                ':senha' => $senha,
+                ':senha' =>sha1($senha),
                 ':tipo' => $tipo,
                 ':status' => $status,
                 ':modificadoEm' => $modificadoEm));

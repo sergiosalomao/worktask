@@ -1,81 +1,47 @@
+<!--carrega css default-->
+<link rel="stylesheet" type="text/css" href="frmUsuarios/css/default.css">
+
 <?php
-require_once "../../controller/TiposUsuarioController.php";
+$linkscreen = new Comp_LinkScreen();
+$linkscreen->render(array(
+    'Painel de Controle',
+    'Usuarios'));
 ?>
 
-<!--jquery-->
-<script src="../../../../../library/jquery/jquery-3.3.1.min.js"></script>
-<p class="breadcrumb">Painel de Controle > Usuarios</p>
-<h3 class="font-weight-light">Usuarios</h3>
-<hr>
+<div class="container">
+    <h3 id="titulo" class="font-weight-light">Usuarios</h3>
+    <hr>
+    <div class="container">
+        <!--Chama o componente msginfo-->
+        <?php
+        $msgInfo = new Comp_MsgInfo();
+        $msgInfo->render();
+        ?>
 
-<div id="tela-aguarde" hidden>
-    <div id="imagem-aguarde">
-        <img src="img/loading.gif">
+        <?php include 'frmUsuarios/frames/form.php' ?>
+
+        <div id="menu">
+            <button id="btn-salvar" type="submit" class="btn btn-sucess" onclick="salvar()">Salvar</button>
+            <button id="btn-lista" type="button" class="btn btn-info" onclick="mostrarLista()">Listar
+            </button>
+            <button id="btn-pncontrole" type="button" class="btn btn-default" onclick="window.location.href = 'frmDashboard.php'">Painel Controle</button>
+        </div>
+
+        <?php include 'frmTipoUsuarios/frames/list.php' ?>
+
+        <?php
+        $statusbar = new Comp_StatusBar();
+        $statusbar->render(array(
+            "<p class='font-weight-light' id='totalReg'></p>"));
+        ?>
     </div>
 </div>
 
-<!--Chama o componente msginfo-->
-<?php include '../../../../componentes/msginfo.php' ?>
 
-<form id="formulario-usuario" action="frmUsuarios/salvaUsuario.php" method="post">
+<!--Carrega os scripts da pagina-->
+<script src="frmUsuarios/js/scripts.js"></script>
 
-
-    <input name="criado_em" type="hidden" id="criado_em" value="<?php
-
-    echo date('d-m-Y H:i:s');
-
-    ?>">
-
-    <input name="modificado_em" type="hidden" id="modificado_em" value="<?php
-
-    echo date('d-m-Y H:i:s');
-
-    ?>">
-
-
-    <div class="form-group">
-        <label for="nome">Nome (*)</label>
-        <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome Usuario" required>
-    </div>
-
-    <div class="form-group">
-        <label for="email">Email (*)</label>
-        <input name="email" type="email" class="form-control" id="email" placeholder="name@example.com" required>
-    </div>
-
-    <div class="form-group">
-        <label for="senha">Senha (*)</label>
-        <input name="senha" type="pass" class="form-control" id="senha" placeholder="password" required>
-    </div>
-
-    <div class="form-group">
-        <label for="tipo_usuario_id">Tipo de usuario (*)</label>
-        <select class="form-control" id="tipo_usuario_id" name="tipo_usuario_id" required>
-            <option value="" selected="Selecione">Selecione</option>
-            <?php
-            $tipoUsuario = new TiposUsuarioController();
-            foreach ($tipoUsuario->ListarTodos() as $linha): ?>
-                <option value="<?php echo $linha->id; ?>">
-                    <?php echo $linha->descricao; ?>
-                </option>
-            <?php endforeach;
-            ?>
-
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="status">Status (*)</label>
-        <select class="form-control" id="status" name="status" required>
-            <option value="" selected="Selecione">Selecione</option>
-            <option value="ATIVO">Ativo</option>
-            <option value="INATIVO">Inativo</option>
-        </select>
-    </div>
-
-    <button id="botao-salvar" type="submit" class="btn btn-sucess">Salvar</button>
-    <button type="button" class="btn btn-default">Voltar</button>
-</form>
+<!--Carrega o arquivo que chama o ajax do formulario-->
 <script src="frmUsuarios/js/carregaAjax.js"></script>
 
 

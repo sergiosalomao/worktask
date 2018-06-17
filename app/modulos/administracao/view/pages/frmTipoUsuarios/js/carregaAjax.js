@@ -1,3 +1,7 @@
+/*Atualiza Registros*/
+   ListarTodos();
+
+
 /*
 Opcao Salvar:
 ==============================
@@ -56,9 +60,8 @@ $('#formulario-tipo-usuario').submit(function () {
                 }
             }
         })
-    /*Limpa o campo*/
-    $('#descricao').val(null)
-    $('#obs').val(null)
+    /*Limpa os campo*/
+    $('#formulario-tipo-usuario input').val(null)
 
     /*seta o focus*/
     $('#descricao').focus()
@@ -95,7 +98,7 @@ function deletaPorId(id) {
                         $('#msginfo').addClass(response.classe)
                             .html(response.mensagem)
 
-                        $('#lista').html(response.lista)
+                             ListarTodos();
                     }
                     else if (response.retorno == 'error') {
                         <!--se o retorno for error-->

@@ -1,5 +1,5 @@
 <div id="form">
-    <form id="formulario-tipo-usuario" action="frmTipoUsuarios/salva.php" method="post">
+    <form id="formulario-tipo-usuario" method="post">
         <div class="form-group">
             <label for="descricao">Descricao (*)</label>
             <input name="descricao" type="text" class="form-control" id="descricao"

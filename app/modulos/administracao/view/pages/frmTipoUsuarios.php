@@ -1,5 +1,6 @@
 <!--carrega css default-->
 <link rel="stylesheet" type="text/css" href="frmTipoUsuarios/css/default.css">
+
 <?php
 $linkscreen = new Comp_LinkScreen();
 $linkscreen->render(array(
@@ -8,9 +9,7 @@ $linkscreen->render(array(
 ?>
 
 <div class="container">
-
     <h3 id="titulo" class="font-weight-light">Tipos de Usuarios</h3>
-
     <hr>
     <div class="container">
         <!--Chama o componente msginfo-->
@@ -23,9 +22,9 @@ $linkscreen->render(array(
 
         <div id="menu">
             <button id="btn-salvar" type="submit" class="btn btn-sucess" onclick="salvar()">Salvar</button>
-            <button id="btn-lista" type="button" class="btn btn-info" onclick="mostrarLista()">Mostrar Relatorio
+            <button id="btn-lista" type="button" class="btn btn-info" onclick="mostrarLista()">Listar
             </button>
-            <button id="btn-voltar" type="button" class="btn btn-default">Voltar</button>
+            <button id="btn-pncontrole" type="button" class="btn btn-default" onclick="window.location.href = 'frmDashboard.php'">Painel Controle</button>
         </div>
 
         <?php include 'frmTipoUsuarios/frames/list.php' ?>
@@ -36,8 +35,9 @@ $linkscreen->render(array(
                 "<p class='font-weight-light' id='totalReg'></p>"));
         ?>
     </div>
-
 </div>
+
+
 <!--Carrega os scripts da pagina-->
 <script src="frmTipoUsuarios/js/scripts.js" ></script>
 

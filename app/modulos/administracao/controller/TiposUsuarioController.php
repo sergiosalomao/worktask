@@ -1,5 +1,6 @@
 <?php
-    require_once 'CrudGenerico.php';
+    //require_once 'CrudGenerico.php';
+    //require_once 'Conexao.php';
 
 Class TiposUsuarioController implements CrudGenerico
 {
@@ -56,7 +57,7 @@ Class TiposUsuarioController implements CrudGenerico
         try
         {
             $sql = "UPDATE {$this->_table} AS {$this->_alias} SET 
-            descricao = :descricao, obs = :obs,  
+            descricao = :descricao, obs = :obs  
             WHERE id = $id";
 
             $descricao = $tipoUsuarioModal->getDescricao();
@@ -67,7 +68,6 @@ Class TiposUsuarioController implements CrudGenerico
             $stmt->execute(array(
                 ':obs' => $obs,
                 ':descricao' => $descricao));
-
         }
         catch (exception $error)
         {

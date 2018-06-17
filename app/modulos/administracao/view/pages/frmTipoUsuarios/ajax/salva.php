@@ -3,20 +3,25 @@ require_once "../../../../controller/TiposUsuarioController.php";
 require_once "../../../../model/TiposUsuario.php";
 require_once "../../../../../../appConfig.php";
 
-if (isset($_POST)):
+if (isset($_POST))
+{
     $descricao = (isset($_POST['descricao'])) ? $_POST['descricao'] : '';
     $obs = (isset($_POST['obs'])) ? $_POST['obs'] : '';
 
     // Valida se foram preenchidos todos os campos
-    if (empty($descricao)):
+    if (empty($descricao))
+    {
         $array = array(
             'retorno' => 'incompleto',
             'classe' => 'bg-warning',
             'mensagem' => 'Preencher todo os campos obrigatórios(*)!');
 
         echo json_encode($array);
-    else:
-        #Grava no banco de dados as informações
+    }
+    else
+        {
+
+
         #Instancia o Controller
         $tipoUsuarioController = new TiposUsuarioController();
 
@@ -27,20 +32,18 @@ if (isset($_POST)):
         $tipoUsuarioModel->setDescricao($descricao);
         $tipoUsuarioModel->setObs($obs);
 
-        $array = array();
-
         #Pega total de registros atuais
         $tot_reg = $tipoUsuarioController->ContaRegistros();
 
         #verifica se existe alguem com a mesma descricao do tipo
-        if ($tipoUsuarioController->procurarPorDescricao($descricao)) {
+        if ($tipoUsuarioController->procurarPorDescricao($descricao))
+        {
             #se existir altera o registro existente
+            $id = $tipoUsuarioController->procurarPorDescricao($descricao)->id;
 
-            #atualiza data da modificacao e passa o ID
-            $tipoUsuarioModel->setId($tipoUsuarioController->procurarPorDescricao($descricao)->descricao);
-            $id = $tipoUsuarioModel->getId();
 
             $tipoUsuarioController->atualizar($id, $tipoUsuarioModel);
+
             $array = array(
                 'retorno' => 'atualizado',
                 'classe' => 'bg-sucess',
@@ -50,7 +53,9 @@ if (isset($_POST)):
 
             exit;
 
-        } else {
+        }
+        else
+            {
             #grava
             $tipoUsuarioController->gravar($tipoUsuarioModel);
 
@@ -72,5 +77,7 @@ if (isset($_POST)):
                 echo json_encode($array);
             }
         }
-    endif;
-endif;
+
+
+    }
+}

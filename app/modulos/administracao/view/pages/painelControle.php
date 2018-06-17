@@ -1,10 +1,15 @@
 <?php
+ini_set('display_errors',1);
+ini_set('display_startup_erros',1);
+error_reporting(E_ALL);?>
+<?php
+require_once('../../../../../AutoLoad.php');
 require_once "../../../../appConfig.php";
 require_once '../../controller/TiposUsuarioController.php';
 require_once '../../model/TiposUsuario.php';
-require_once '../../../../componentes/Comp_MsgInfo.php';
-require_once '../../../../componentes/Comp_LinkScreen.php';
-require_once '../../../../componentes/Comp_StatusBar.php '?>
+
+
+?>
 
 <!DOCTYPE html>
 <html>
